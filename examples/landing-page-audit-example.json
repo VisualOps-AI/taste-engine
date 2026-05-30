@@ -1,0 +1,36 @@
+{
+  "asset_type": "landing_page",
+  "decision": "revise",
+  "taste_score": 79,
+  "summary": "A confident, well-toned AI-infrastructure portfolio landing page with strong visual identity, undercut by a soft CTA hierarchy that lets the primary action compete with secondary links.",
+  "scores": {
+    "clarity": 8,
+    "visual_hierarchy": 7,
+    "typography": 9,
+    "composition": 8,
+    "color_logic": 9,
+    "brand_alignment": 9,
+    "audience_fit": 8,
+    "commercial_strength": 7,
+    "originality": 8,
+    "production_readiness": 8
+  },
+  "primary_issues": [
+    "The primary CTA shares visual weight with two secondary links in the hero, so there is no single obvious next step.",
+    "The above-the-fold headline communicates tone well but is a half-beat slow on stating exactly what the offering is.",
+    "Trust signals (proof, real numbers, logos) appear late; the first screen asks for action before earning it."
+  ],
+  "recommended_fixes": [
+    "Make the primary CTA the single dominant element in the hero — stronger contrast, more size, and demote the secondary links to text.",
+    "Tighten the headline to name the offering in plain terms in the first line, with the tonal line as the subhead.",
+    "Pull one concrete proof point (metric or recognizable logo) above the fold to support the CTA."
+  ],
+  "production_notes": "Verify the hero hierarchy and CTA prominence survive a narrow mobile viewport — the current three-element hero risks stacking into ambiguity. Confirm type scale and contrast meet accessibility on smaller screens.",
+  "brand_alignment": {
+    "aligned": true,
+    "notes": "Dark, high-contrast, technical tone is on-brand for AI infrastructure and avoids the generic SaaS gradient look. Typography and color system are a clear strength and reinforce a premium, credible feel."
+  },
+  "commercial_verdict": "Close to converting. The page earns attention and credibility; the missing piece is conversion focus. Tightening the CTA hierarchy should lift action rate without touching the visual identity.",
+  "improved_direction": "Keep the visual system intact. Reorganize the hero around one dominant CTA, lead with a plain-language statement of what this is, and surface a single proof point early so the ask is backed before it's made.",
+  "next_action": "Restructure the hero CTA hierarchy and headline, validate on mobile, then re-audit conversion strength."
+}

@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://taste-engine.dev/schemas/taste-audit.schema.json",
+  "title": "TasteAudit",
+  "description": "The result of a Taste Engine creative QA review of a single visual asset.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "asset_type",
+    "decision",
+    "taste_score",
+    "summary",
+    "scores",
+    "primary_issues",
+    "recommended_fixes",
+    "production_notes",
+    "brand_alignment",
+    "commercial_verdict",
+    "improved_direction",
+    "next_action"
+  ],
+  "properties": {
+    "asset_type": {
+      "type": "string",
+      "description": "The kind of creative asset reviewed.",
+      "enum": [
+        "apparel_graphic",
+        "landing_page",
+        "ad_creative",
+        "brand_identity",
+        "ai_visual",
+        "social_creative",
+        "product_mockup"
+      ]
+    },
+    "decision": {
+      "type": "string",
+      "description": "The final ship decision.",
+      "enum": ["pass", "revise", "reject"]
+    },
+    "taste_score": {
+      "type": "integer",
+      "description": "Weighted overall score, 0-100.",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "summary": {
+      "type": "string",
+      "description": "One to three sentence executive verdict.",
+      "minLength": 1
+    },
+    "scores": {
+      "$ref": "#/$defs/categoryScores"
+    },
+    "primary_issues": {
+      "type": "array",
+      "description": "The most important problems, each a specific, reasoned finding.",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "recommended_fixes": {
+      "type": "array",
+      "description": "Actionable, prioritized fixes.",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "production_notes": {
+      "type": "string",
+      "description": "Medium-specific implementation or production guidance and risks."
+    },
+    "brand_alignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["aligned", "notes"],
+      "properties": {
+        "aligned": {
+          "type": "boolean",
+          "description": "Whether the asset aligns with the supplied brand profile."
+        },
+        "notes": {
+          "type": "string",
+          "description": "How the asset sits against the brand profile."
+        }
+      }
+    },
+    "commercial_verdict": {
+      "type": "string",
+      "description": "Assessment of commercial / market viability."
+    },
+    "improved_direction": {
+      "type": "string",
+      "description": "What a stronger version of this asset looks like."
+    },
+    "regeneration_prompt": {
+      "type": "string",
+      "description": "Optional prompt to regenerate or improve the asset with an image / design model."
+    },
+    "override": {
+      "type": "object",
+      "description": "Present when a fatal issue overrode the numeric score.",
+      "additionalProperties": false,
+      "required": ["triggered", "reason_type", "reason"],
+      "properties": {
+        "triggered": { "type": "boolean" },
+        "reason_type": {
+          "type": "string",
+          "enum": [
+            "brand_mismatch",
+            "production_defect",
+            "legal_ip",
+            "clarity_failure"
+          ]
+        },
+        "reason": { "type": "string" }
+      }
+    },
+    "next_action": {
+      "type": "string",
+      "description": "The single most important next step.",
+      "minLength": 1
+    }
+  },
+  "$defs": {
+    "categoryScore": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10
+    },
+    "categoryScores": {
+      "type": "object",
+      "description": "Per-category scores, each 0-10.",
+      "additionalProperties": false,
+      "required": [
+        "clarity",
+        "visual_hierarchy",
+        "typography",
+        "composition",
+        "color_logic",
+        "brand_alignment",
+        "audience_fit",
+        "commercial_strength",
+        "originality",
+        "production_readiness"
+      ],
+      "properties": {
+        "clarity": { "$ref": "#/$defs/categoryScore" },
+        "visual_hierarchy": { "$ref": "#/$defs/categoryScore" },
+        "typography": { "$ref": "#/$defs/categoryScore" },
+        "composition": { "$ref": "#/$defs/categoryScore" },
+        "color_logic": { "$ref": "#/$defs/categoryScore" },
+        "brand_alignment": { "$ref": "#/$defs/categoryScore" },
+        "audience_fit": { "$ref": "#/$defs/categoryScore" },
+        "commercial_strength": { "$ref": "#/$defs/categoryScore" },
+        "originality": { "$ref": "#/$defs/categoryScore" },
+        "production_readiness": { "$ref": "#/$defs/categoryScore" }
+      }
+    }
+  }
+}

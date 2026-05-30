@@ -1,0 +1,39 @@
+{
+  "name": "taste-engine",
+  "version": "0.1.0",
+  "description": "Creative QA for AI-generated brand assets. A judgment layer that scores, critiques, and gates visual creative using design principles, brand context, and production constraints.",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "creative-qa",
+    "design-review",
+    "brand-alignment",
+    "taste-score",
+    "ai-creative",
+    "creative-governance",
+    "design-rubric"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "schemas",
+    "rubrics",
+    "templates"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "echo \"No tests yet. Test harness lands in Phase 2.\" && exit 0",
+    "lint": "echo \"No linter configured yet. Linting lands in Phase 2.\" && exit 0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "brand_name": "VisualOps AI",
+  "category": "AI infrastructure / creative-technology platform",
+  "target_audience": "AI builders, senior engineers, and technical founders who value craft and can tell premium from generic.",
+  "visual_style": [
+    "dark",
+    "minimal",
+    "technical",
+    "cinematic",
+    "high-contrast",
+    "premium infrastructure"
+  ],
+  "avoid": [
+    "cartoonish illustration",
+    "generic SaaS gradients (purple-to-blue hero)",
+    "cheap AI clipart and uncanny stock renders",
+    "cluttered dashboard screenshots as decoration",
+    "overly corporate stock photography"
+  ],
+  "typography_preferences": {
+    "direction": "Heavy, confident grotesque for display; clean monospace or technical sans for supporting/UI text.",
+    "approved_typefaces": [],
+    "notes": "Type should feel engineered and deliberate. Tight tracking on display. No default geometric sans used as a crutch."
+  },
+  "color_preferences": {
+    "palette": ["#000000", "#FFFFFF", "#E10600"],
+    "notes": "Black and white foundation with a single high-energy red accent used sparingly for emphasis. Contrast is a feature, not an afterthought."
+  },
+  "brand_personality": [
+    "confident",
+    "technical",
+    "restrained",
+    "cinematic",
+    "uncompromising on craft"
+  ],
+  "production_constraints": [
+    "Logo and marks must be legible at favicon / app-icon size",
+    "Identity must work in one color (single ink) and on black",
+    "Web assets must hold hierarchy and contrast on mobile",
+    "Apparel: hold to 3-4 spot colors and read on black garments"
+  ],
+  "quality_bar": "Premium creative-technology standard: every asset should look intentional, engineered, and impossible to mistake for default AI output. If it could belong to any AI startup, it isn't done."
+}

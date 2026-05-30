@@ -1,0 +1,34 @@
+{
+  "asset_type": "ad_creative",
+  "decision": "pass",
+  "taste_score": 87,
+  "summary": "A scroll-stopping sneaker e-commerce video frame with a strong product hero and real emotional pull. It passes; a small lift to the offer's first-read clarity would push it from good to exceptional.",
+  "scores": {
+    "clarity": 9,
+    "visual_hierarchy": 9,
+    "typography": 8,
+    "composition": 9,
+    "color_logic": 9,
+    "brand_alignment": 8,
+    "audience_fit": 9,
+    "commercial_strength": 9,
+    "originality": 7,
+    "production_readiness": 9
+  },
+  "primary_issues": [
+    "The offer text in the corner is a touch small and low-contrast for a thumbnail read; it survives at full size but softens in-feed.",
+    "Originality is good but not category-breaking — the hero-on-motion treatment is effective yet familiar."
+  ],
+  "recommended_fixes": [
+    "Increase the offer's size and contrast so it lands in the first read at thumbnail scale.",
+    "Optionally introduce one distinctive signature element (lighting, color accent, motion cue) to make the frame unmistakably this brand."
+  ],
+  "production_notes": "Frame is built for a vertical paid-social placement; product is hero, well-lit, and shown at a flattering, truthful angle. Confirm text sits inside platform safe zones so UI overlays don't clip the offer. As a video still it reads strongly on its own.",
+  "brand_alignment": {
+    "aligned": true,
+    "notes": "Energetic, product-forward, and consistent with a performance sneaker brand. Tone and palette are on-brand; the frame would benefit from one ownable signature to deepen recognition."
+  },
+  "commercial_verdict": "Strong paid-ad candidate. Clear product, clear desire, clear path to purchase. Worth putting real budget behind cold traffic, with the offer-clarity tweak applied first.",
+  "improved_direction": "Keep the composition and energy. Sharpen the offer so it reads instantly at thumbnail size, and consider one distinctive brand signature so the creative is recognizable before the logo is.",
+  "next_action": "Ship as-is if speed matters; ideally bump offer contrast/size first, then launch and test against a hook variant."
+}

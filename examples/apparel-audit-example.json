@@ -1,0 +1,37 @@
+{
+  "asset_type": "apparel_graphic",
+  "decision": "revise",
+  "taste_score": 72,
+  "summary": "A genuinely strong concept for AI-developer streetwear with clear buyer appeal, held back by placeholder-grade typography and linework that is too fine to screen print cleanly.",
+  "scores": {
+    "clarity": 8,
+    "visual_hierarchy": 7,
+    "typography": 6,
+    "composition": 8,
+    "color_logic": 8,
+    "brand_alignment": 8,
+    "audience_fit": 9,
+    "commercial_strength": 8,
+    "originality": 7,
+    "production_readiness": 6
+  },
+  "primary_issues": [
+    "The headline uses a default geometric sans with loose tracking — it reads as a placeholder, not a brand voice, and gives the design no authority.",
+    "Several elements rely on sub-1pt linework and fine stipple detail that will fill in or break up on a screen-printed cotton tee.",
+    "Detail density is high enough that the concept loses legibility at the 6–10 foot read."
+  ],
+  "recommended_fixes": [
+    "Replace the headline with a heavy grotesque (e.g. a condensed industrial sans) and tighten tracking for presence.",
+    "Raise minimum stroke weight to ~2.5pt and remove the finest texture so the art survives screen print.",
+    "Simplify secondary detail by ~30% to protect the distance read; let one idea dominate."
+  ],
+  "production_notes": "Designed for screen print on a black garment. Hold the palette to 3–4 spot colors. Verify contrast of all elements against black, not the white mockup. Re-check legibility at arm's length and across a room before approving for print. If fine detail is essential to the concept, switch to DTG/DTF and note the durability/feel tradeoff.",
+  "brand_alignment": {
+    "aligned": true,
+    "notes": "Tone, subject, and audience fit the AI/tech developer-merch positioning well. The weakness is execution craft (type + linework), not brand direction."
+  },
+  "commercial_verdict": "Commercially promising — the concept speaks directly to the target buyer's identity. With the type and print fixes, this is a sellable hero tee rather than a generic dev joke shirt.",
+  "improved_direction": "Keep the concept and composition. Lead with a heavier, more deliberate headline that carries a point of view, simplify the supporting detail so one idea reads instantly from across a room, and lock the art to a clean 3–4 color screen-print build on black.",
+  "regeneration_prompt": "Create an apparel graphic (screen-printed tee) for an AI-developer streetwear brand, targeting senior engineers and AI builders. Visual style: bold, technical, high-contrast, confident. This is a revision; the previous version's headline read as a default placeholder and the linework was too fine to print. Fix it: use a heavy condensed grotesque with tight tracking, raise minimum stroke weight to ~2.5pt, and reduce fine detail. Constraints: max 4 spot colors, must read on a black garment, legible from 6-10 feet. No generic dev-joke clip art.",
+  "next_action": "Regenerate with the heavier headline and simplified, print-safe linework, then re-audit against this rubric before sampling."
+}

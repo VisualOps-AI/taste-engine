@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://taste-engine.dev/schemas/asset-input.schema.json",
+  "title": "AssetInput",
+  "description": "The input payload describing an asset to be reviewed by Taste Engine.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "asset_type",
+    "asset_description",
+    "intended_use",
+    "target_audience",
+    "brand_profile",
+    "constraints"
+  ],
+  "properties": {
+    "asset_type": {
+      "type": "string",
+      "enum": [
+        "apparel_graphic",
+        "landing_page",
+        "ad_creative",
+        "brand_identity",
+        "ai_visual",
+        "social_creative",
+        "product_mockup"
+      ]
+    },
+    "asset_description": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A precise description of the asset, or a reference to the supplied image."
+    },
+    "asset_reference": {
+      "type": "string",
+      "description": "Optional path or URL to the asset image / mockup."
+    },
+    "intended_use": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Where and how the asset will be used (medium, placement, platform)."
+    },
+    "target_audience": {
+      "type": "string",
+      "description": "The specific audience for this asset (may narrow the brand audience)."
+    },
+    "brand_profile": {
+      "$ref": "https://taste-engine.dev/schemas/brand-profile.schema.json"
+    },
+    "constraints": {
+      "type": "array",
+      "description": "Asset-specific constraints (e.g. screen print, single color, 1080x1350, mobile-first).",
+      "items": { "type": "string" }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://taste-engine.dev/schemas/brand-profile.schema.json",
+  "title": "BrandProfile",
+  "description": "The brand context Taste Engine reviews an asset against.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "brand_name",
+    "category",
+    "target_audience",
+    "visual_style",
+    "avoid",
+    "typography_preferences",
+    "color_preferences",
+    "brand_personality",
+    "production_constraints",
+    "quality_bar"
+  ],
+  "properties": {
+    "brand_name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The brand's name."
+    },
+    "category": {
+      "type": "string",
+      "description": "Market / product category (e.g. AI infrastructure, streetwear, DTC skincare)."
+    },
+    "target_audience": {
+      "type": "string",
+      "description": "Who the brand is for, described concretely."
+    },
+    "visual_style": {
+      "type": "array",
+      "description": "Descriptors of the intended visual feel.",
+      "items": { "type": "string" }
+    },
+    "avoid": {
+      "type": "array",
+      "description": "Visual styles, clichés, and tells the brand must never use.",
+      "items": { "type": "string" }
+    },
+    "typography_preferences": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["direction"],
+      "properties": {
+        "direction": {
+          "type": "string",
+          "description": "Overall type direction (e.g. heavy grotesque, editorial serif)."
+        },
+        "approved_typefaces": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "notes": { "type": "string" }
+      }
+    },
+    "color_preferences": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["palette"],
+      "properties": {
+        "palette": {
+          "type": "array",
+          "description": "Core colors, ideally as hex or named tokens.",
+          "items": { "type": "string" }
+        },
+        "notes": { "type": "string" }
+      }
+    },
+    "brand_personality": {
+      "type": "array",
+      "description": "Personality traits (e.g. confident, technical, restrained).",
+      "items": { "type": "string" }
+    },
+    "production_constraints": {
+      "type": "array",
+      "description": "Hard production limits (e.g. max 4 spot colors, must work on black garments, app-icon legible).",
+      "items": { "type": "string" }
+    },
+    "quality_bar": {
+      "type": "string",
+      "description": "What 'good enough to ship' means for this brand.",
+      "minLength": 1
+    }
+  }
+}
