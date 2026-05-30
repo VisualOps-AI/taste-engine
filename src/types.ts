@@ -106,3 +106,18 @@ export interface AssetInput {
   brand_profile: BrandProfile;
   constraints: string[];
 }
+
+/**
+ * Input to the CLI scorer. The category `scores` and narrative are supplied by
+ * the reviewer (or the skill); the engine computes `taste_score` and
+ * `decision` from them deterministically. This is the deterministic scoring /
+ * gating layer — it does not look at an image and assign category scores.
+ */
+export interface AuditInput {
+  asset_type: AssetType;
+  summary: string;
+  scores: CategoryScores;
+  primary_issues: string[];
+  recommended_fixes: string[];
+  next_action: string;
+}

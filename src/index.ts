@@ -21,6 +21,7 @@ export type {
   ColorPreferences,
   BrandProfile,
   AssetInput,
+  AuditInput,
 } from "./types.js";
 
 export {
@@ -46,6 +47,7 @@ export {
   validateTasteAudit,
   validateBrandProfile,
   validateAssetInput,
+  validateAuditInput,
 } from "./validate.js";
 
 export type { ValidationResult } from "./validate.js";

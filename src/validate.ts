@@ -7,7 +7,7 @@
  */
 
 import { ASSET_TYPES, CATEGORY_KEYS, DECISIONS } from "./schemas.js";
-import type { AssetInput, BrandProfile, TasteAudit } from "./types.js";
+import type { AssetInput, AuditInput, BrandProfile, TasteAudit } from "./types.js";
 
 export interface ValidationResult<T> {
   valid: boolean;
@@ -147,4 +147,22 @@ export function validateAssetInput(input: unknown): ValidationResult<AssetInput>
   }
 
   return errors.length === 0 ? ok(input as unknown as AssetInput) : fail(errors);
+}
+
+export function validateAuditInput(input: unknown): ValidationResult<AuditInput> {
+  const errors: string[] = [];
+  if (!isRecord(input)) {
+    return fail(["audit input must be an object"]);
+  }
+
+  if (!ASSET_TYPES.includes(input.asset_type as never)) {
+    errors.push(`"asset_type" must be one of: ${ASSET_TYPES.join(", ")}`);
+  }
+  requireString(input, "summary", errors);
+  validateCategoryScores(input.scores, errors);
+  requireStringArray(input, "primary_issues", errors);
+  requireStringArray(input, "recommended_fixes", errors);
+  requireString(input, "next_action", errors);
+
+  return errors.length === 0 ? ok(input as unknown as AuditInput) : fail(errors);
 }

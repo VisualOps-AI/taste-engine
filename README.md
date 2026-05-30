@@ -166,6 +166,52 @@ The scoring and validation primitives live in [`src/`](src/). Start with [`docs/
 
 ---
 
+## CLI audit tool (Phase 2)
+
+A lightweight, dependency-free CLI that scores a structured audit input file and prints a PASS / REVISE / REJECT verdict.
+
+```bash
+npm run build
+node dist/cli.js audit examples/apparel-input-example.json
+```
+
+Once built, the `taste` bin is also available (via `npm link` or after install):
+
+```bash
+taste audit examples/landing-page-input-example.json
+```
+
+### Input format
+
+The CLI is the **deterministic scoring layer**. It does not look at an image — it takes the category scores (0–10) and the review narrative as input, then computes the weighted `taste_score` and the decision. The visual judgment (assigning category scores from an asset) is the skill's job.
+
+```json
+{
+  "asset_type": "apparel_graphic",
+  "summary": "Short executive verdict.",
+  "scores": { "clarity": 8, "typography": 6, "...": 0 },
+  "primary_issues": ["..."],
+  "recommended_fixes": ["..."],
+  "next_action": "..."
+}
+```
+
+See [`examples/*-input-example.json`](examples/) for complete inputs. The full ten-category `scores` block is required (see [`schemas/taste-audit.schema.json`](schemas/taste-audit.schema.json)).
+
+### Output
+
+A terminal report with asset type, taste score, decision, per-category score bars, summary, primary issues, recommended fixes, and next action.
+
+### Exit codes
+
+| Code | Meaning |
+|:----:|---------|
+| `0` | `pass` or `revise` |
+| `1` | `reject` (use to gate scripts/pipelines) |
+| `2` | usage or input error |
+
+---
+
 ## A note on scope
 
 Taste Engine does not claim to perfectly judge art. Taste is contested, contextual, and partly subjective. What this system does is make *creative judgment under constraints* repeatable: it holds work to a defined brand, audience, medium, and execution standard, and it explains its reasoning every time. It is a sharper, faster first reviewer — not a replacement for a human creative director's final call.

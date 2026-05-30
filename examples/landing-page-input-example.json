@@ -1,0 +1,25 @@
+{
+  "asset_type": "landing_page",
+  "summary": "A confident, well-toned AI-infrastructure portfolio landing page with strong visual identity, undercut by a soft CTA hierarchy that lets the primary action compete with secondary links.",
+  "scores": {
+    "clarity": 8,
+    "visual_hierarchy": 7,
+    "typography": 9,
+    "composition": 8,
+    "color_logic": 9,
+    "brand_alignment": 9,
+    "audience_fit": 8,
+    "commercial_strength": 7,
+    "originality": 8,
+    "production_readiness": 8
+  },
+  "primary_issues": [
+    "The primary CTA shares visual weight with two secondary links in the hero, so there is no single obvious next step.",
+    "The above-the-fold headline communicates tone well but is a half-beat slow on stating exactly what the offering is."
+  ],
+  "recommended_fixes": [
+    "Make the primary CTA the single dominant element in the hero and demote the secondary links to text.",
+    "Tighten the headline to name the offering in plain terms, with the tonal line as the subhead."
+  ],
+  "next_action": "Restructure the hero CTA hierarchy and headline, validate on mobile, then re-audit conversion strength."
+}
