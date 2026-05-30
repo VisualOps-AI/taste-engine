@@ -1,0 +1,34 @@
+{
+  "asset_type": "apparel_graphic",
+  "taste_score": 72,
+  "engine_decision": "revise",
+  "human_review": {
+    "review_status": "overridden",
+    "engine_decision": "revise",
+    "human_decision": "pass",
+    "override_reason": "The campaign intentionally uses aggressive typography.",
+    "calibration_note": "Allow more experimental type for streetwear assets."
+  },
+  "summary": "A genuinely strong concept for AI-developer streetwear with clear buyer appeal, held back by placeholder-grade typography and linework that is too fine to screen print cleanly.",
+  "scores": {
+    "clarity": 8,
+    "visual_hierarchy": 7,
+    "typography": 6,
+    "composition": 8,
+    "color_logic": 8,
+    "brand_alignment": 8,
+    "audience_fit": 9,
+    "commercial_strength": 8,
+    "originality": 7,
+    "production_readiness": 6
+  },
+  "primary_issues": [
+    "The headline uses a default geometric sans with loose tracking — it reads as a placeholder, not a brand voice, and gives the design no authority.",
+    "Several elements rely on sub-1pt linework and fine stipple detail that will fill in or break up on a screen-printed cotton tee."
+  ],
+  "recommended_fixes": [
+    "Replace the headline with a heavy grotesque and tighten tracking for presence.",
+    "Raise minimum stroke weight to ~2.5pt and remove the finest texture so the art survives screen print."
+  ],
+  "next_action": "Regenerate with the heavier headline and simplified, print-safe linework, then re-audit before sampling."
+}

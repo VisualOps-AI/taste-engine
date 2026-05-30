@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://taste-engine.dev/schemas/override-record.schema.json",
+  "title": "OverrideRecord",
+  "description": "A human-in-the-loop override of an engine decision, with an optional calibration note. Append-only; the raw material for brand taste memory.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "recorded_at",
+    "asset_type",
+    "engine_score",
+    "engine_decision",
+    "human_decision",
+    "override_reason"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable unique id for this override record.",
+      "minLength": 1
+    },
+    "recorded_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the override was recorded."
+    },
+    "asset_type": {
+      "type": "string",
+      "enum": [
+        "apparel_graphic",
+        "landing_page",
+        "ad_creative",
+        "brand_identity",
+        "ai_visual",
+        "social_creative",
+        "product_mockup"
+      ]
+    },
+    "source": {
+      "type": "string",
+      "description": "Path or reference to the audit input the override applies to."
+    },
+    "engine_score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "The score the engine computed."
+    },
+    "engine_decision": {
+      "type": "string",
+      "enum": ["pass", "revise", "reject"],
+      "description": "The decision the engine assigned."
+    },
+    "human_decision": {
+      "type": "string",
+      "enum": ["pass", "revise", "reject"],
+      "description": "The decision the human recorded instead."
+    },
+    "override_reason": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Why the human overrode the engine."
+    },
+    "calibration_note": {
+      "type": "string",
+      "description": "Optional guidance to steer future scoring for this class of asset."
+    }
+  }
+}

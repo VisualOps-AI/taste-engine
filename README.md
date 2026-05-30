@@ -210,6 +210,75 @@ A terminal report with asset type, taste score, decision, per-category score bar
 | `1` | `reject` (use to gate scripts/pipelines) |
 | `2` | usage or input error |
 
+### Human-in-the-loop overrides
+
+When a reviewer disagrees with the engine, record the override — what the engine said, the human's call, the reason, and an optional calibration note to steer future scoring. Records append to a JSON Lines log (`overrides.jsonl`), the raw material for Phase 6 brand taste memory.
+
+```bash
+node dist/cli.js override examples/apparel-input-example.json \
+  --decision pass \
+  --reason "This campaign intentionally uses aggressive type tension." \
+  --note "Allow more experimental typography for streetwear assets."
+```
+
+Each line in the log is one `OverrideRecord` (see [`schemas/override-record.schema.json`](schemas/override-record.schema.json) and [`examples/override-record-example.json`](examples/override-record-example.json)):
+
+```json
+{ "id": "ovr_…", "recorded_at": "…", "asset_type": "apparel_graphic", "engine_score": 72, "engine_decision": "revise", "human_decision": "pass", "override_reason": "…", "calibration_note": "…" }
+```
+
+The log file is git-ignored — it's per-environment runtime data, not source.
+
+> The standalone `override` command **persists** a decision to a log. The `audit --human-decision` flags below attach a human review **inline** to a single audit's output. Use the flags for review; use `override` when you want an append-only record.
+
+---
+
+## Human Taste Loop
+
+Taste Engine does not replace a human creative director. The engine provides first-pass creative QA — a score and a default decision — but the human remains the final authority: they can approve, reject, revise, or override the result. Overrides can carry calibration notes that become the foundation for future brand taste memory.
+
+Run a plain audit and the review stays open — `pending_human_review`, `human_decision: pending`:
+
+```bash
+node dist/cli.js audit examples/apparel-input-example.json
+```
+
+Attach a human decision. If it differs from the engine, an `--override-reason` is required and the status becomes `overridden`:
+
+```bash
+node dist/cli.js audit examples/apparel-input-example.json \
+  --human-decision pass \
+  --override-reason "The campaign intentionally uses aggressive typography." \
+  --calibration-note "Allow more experimental type for streetwear assets."
+```
+
+Emit machine-readable JSON (for pipelines) instead of the terminal report:
+
+```bash
+node dist/cli.js audit examples/apparel-input-example.json --json
+```
+
+`npm run audit` works too — pass flags after `--`:
+
+```bash
+npm run audit -- examples/apparel-input-example.json \
+  --human-decision pass \
+  --override-reason "Approved by creative director." \
+  --calibration-note "This brand can tolerate more visual tension."
+```
+
+### Review status
+
+| Human decision | vs engine | `review_status` |
+|----------------|-----------|-----------------|
+| `pending` (default) | — | `pending_human_review` |
+| `pass` | matches engine | `approved` |
+| `revise` | matches engine | `revised` |
+| `reject` | matches engine | `rejected` |
+| any | **differs** (requires `--override-reason`) | `overridden` |
+
+The **effective decision** (the human's call, or the engine's when pending) drives the exit code: `reject` → `1`, otherwise `0`. See sample outputs in [`examples/human-loop-pass-example.json`](examples/human-loop-pass-example.json) and [`examples/human-loop-override-example.json`](examples/human-loop-override-example.json), and the full rationale in [`docs/human-taste-loop.md`](docs/human-taste-loop.md).
+
 ---
 
 ## A note on scope

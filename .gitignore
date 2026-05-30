@@ -23,3 +23,7 @@ Thumbs.db
 
 # Coverage / test artifacts
 coverage/
+
+# Runtime override log (human-in-the-loop records)
+overrides.jsonl
+*.jsonl

@@ -7,6 +7,17 @@
 
 export type Decision = "pass" | "revise" | "reject";
 
+/** A human reviewer's decision. `pending` means no human has reviewed yet. */
+export type HumanDecision = "pass" | "revise" | "reject" | "pending";
+
+/** Where an audit sits in the human review loop. */
+export type ReviewStatus =
+  | "pending_human_review"
+  | "approved"
+  | "revised"
+  | "rejected"
+  | "overridden";
+
 export type AssetType =
   | "apparel_graphic"
   | "landing_page"
@@ -120,4 +131,35 @@ export interface AuditInput {
   primary_issues: string[];
   recommended_fixes: string[];
   next_action: string;
+}
+
+/**
+ * The human review attached to an audit. The engine produces `engine_decision`;
+ * the human is the final authority via `human_decision`, with `review_status`
+ * summarizing the outcome. Calibration notes seed Phase 6 brand taste memory.
+ */
+export interface HumanTasteLoop {
+  review_status: ReviewStatus;
+  engine_decision: Decision;
+  human_decision: HumanDecision;
+  override_reason?: string;
+  calibration_note?: string;
+}
+
+/**
+ * A human-in-the-loop override of an engine decision. Captures what the engine
+ * said, what the human decided instead, why, and an optional calibration note
+ * to steer future scoring for this class of asset. Append-only; this is the
+ * raw material for Phase 6 brand taste memory.
+ */
+export interface OverrideRecord {
+  id: string;
+  recorded_at: string;
+  asset_type: AssetType;
+  source?: string;
+  engine_score: number;
+  engine_decision: Decision;
+  human_decision: Decision;
+  override_reason: string;
+  calibration_note?: string;
 }

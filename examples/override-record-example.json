@@ -1,0 +1,11 @@
+{
+  "id": "ovr_3f1c9b2a-7d44-4e9a-9c2e-2b8f0a6d1e57",
+  "recorded_at": "2026-05-30T02:45:00.000Z",
+  "asset_type": "apparel_graphic",
+  "source": "examples/apparel-input-example.json",
+  "engine_score": 72,
+  "engine_decision": "revise",
+  "human_decision": "pass",
+  "override_reason": "This campaign intentionally uses aggressive type tension.",
+  "calibration_note": "Allow more experimental typography for streetwear assets."
+}

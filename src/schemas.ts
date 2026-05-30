@@ -8,7 +8,13 @@
  * Each preset sums to 1.
  */
 
-import type { AssetType, CategoryWeights, Decision } from "./types.js";
+import type {
+  AssetType,
+  CategoryWeights,
+  Decision,
+  HumanDecision,
+  ReviewStatus,
+} from "./types.js";
 
 export const ASSET_TYPES: readonly AssetType[] = [
   "apparel_graphic",
@@ -21,6 +27,21 @@ export const ASSET_TYPES: readonly AssetType[] = [
 ];
 
 export const DECISIONS: readonly Decision[] = ["pass", "revise", "reject"];
+
+export const HUMAN_DECISIONS: readonly HumanDecision[] = [
+  "pass",
+  "revise",
+  "reject",
+  "pending",
+];
+
+export const REVIEW_STATUSES: readonly ReviewStatus[] = [
+  "pending_human_review",
+  "approved",
+  "revised",
+  "rejected",
+  "overridden",
+];
 
 export const CATEGORY_KEYS: readonly (keyof CategoryWeights)[] = [
   "clarity",

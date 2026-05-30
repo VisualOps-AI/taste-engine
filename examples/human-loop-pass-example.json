@@ -1,0 +1,32 @@
+{
+  "asset_type": "ad_creative",
+  "taste_score": 87,
+  "engine_decision": "pass",
+  "human_review": {
+    "review_status": "approved",
+    "engine_decision": "pass",
+    "human_decision": "pass"
+  },
+  "summary": "A scroll-stopping sneaker e-commerce video frame with a strong product hero and real emotional pull. It passes; a small lift to the offer's first-read clarity would push it from good to exceptional.",
+  "scores": {
+    "clarity": 9,
+    "visual_hierarchy": 9,
+    "typography": 8,
+    "composition": 9,
+    "color_logic": 9,
+    "brand_alignment": 8,
+    "audience_fit": 9,
+    "commercial_strength": 9,
+    "originality": 7,
+    "production_readiness": 9
+  },
+  "primary_issues": [
+    "The offer text in the corner is a touch small and low-contrast for a thumbnail read; it survives at full size but softens in-feed.",
+    "Originality is good but not category-breaking — the hero-on-motion treatment is effective yet familiar."
+  ],
+  "recommended_fixes": [
+    "Increase the offer's size and contrast so it lands in the first read at thumbnail scale.",
+    "Introduce one distinctive signature element (lighting, color accent, motion cue) to make the frame unmistakably this brand."
+  ],
+  "next_action": "Bump offer contrast and size, then launch and test against a hook variant."
+}

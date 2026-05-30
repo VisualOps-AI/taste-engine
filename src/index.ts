@@ -8,6 +8,9 @@
 
 export type {
   Decision,
+  HumanDecision,
+  ReviewStatus,
+  HumanTasteLoop,
   AssetType,
   TasteScore,
   CategoryScore,
@@ -22,6 +25,7 @@ export type {
   BrandProfile,
   AssetInput,
   AuditInput,
+  OverrideRecord,
 } from "./types.js";
 
 export {
@@ -37,6 +41,8 @@ export {
 export {
   ASSET_TYPES,
   DECISIONS,
+  HUMAN_DECISIONS,
+  REVIEW_STATUSES,
   CATEGORY_KEYS,
   DEFAULT_WEIGHTS,
   RUBRIC_WEIGHTS,
@@ -48,6 +54,7 @@ export {
   validateBrandProfile,
   validateAssetInput,
   validateAuditInput,
+  validateOverrideRecord,
 } from "./validate.js";
 
 export type { ValidationResult } from "./validate.js";

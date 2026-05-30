@@ -7,7 +7,13 @@
  */
 
 import { ASSET_TYPES, CATEGORY_KEYS, DECISIONS } from "./schemas.js";
-import type { AssetInput, AuditInput, BrandProfile, TasteAudit } from "./types.js";
+import type {
+  AssetInput,
+  AuditInput,
+  BrandProfile,
+  OverrideRecord,
+  TasteAudit,
+} from "./types.js";
 
 export interface ValidationResult<T> {
   valid: boolean;
@@ -165,4 +171,36 @@ export function validateAuditInput(input: unknown): ValidationResult<AuditInput>
   requireString(input, "next_action", errors);
 
   return errors.length === 0 ? ok(input as unknown as AuditInput) : fail(errors);
+}
+
+export function validateOverrideRecord(
+  input: unknown,
+): ValidationResult<OverrideRecord> {
+  const errors: string[] = [];
+  if (!isRecord(input)) {
+    return fail(["override record must be an object"]);
+  }
+
+  requireString(input, "id", errors);
+  requireString(input, "recorded_at", errors);
+  if (!ASSET_TYPES.includes(input.asset_type as never)) {
+    errors.push(`"asset_type" must be one of: ${ASSET_TYPES.join(", ")}`);
+  }
+
+  const engineScore = input.engine_score;
+  if (typeof engineScore !== "number" || engineScore < 0 || engineScore > 100) {
+    errors.push(`"engine_score" must be a number between 0 and 100`);
+  }
+
+  if (!DECISIONS.includes(input.engine_decision as never)) {
+    errors.push(`"engine_decision" must be one of: ${DECISIONS.join(", ")}`);
+  }
+  if (!DECISIONS.includes(input.human_decision as never)) {
+    errors.push(`"human_decision" must be one of: ${DECISIONS.join(", ")}`);
+  }
+  requireString(input, "override_reason", errors);
+
+  return errors.length === 0
+    ? ok(input as unknown as OverrideRecord)
+    : fail(errors);
 }
